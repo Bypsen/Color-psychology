@@ -1,0 +1,625 @@
+/* Общие стили */
+:root {
+    --primary: #4a4e69;
+    --secondary: #9a8c98;
+    --accent: #c9ada7;
+    --light: #f2e9e4;
+    --dark: #22223b;
+    --white: #ffffff;
+    --black: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--black);
+    background-color: var(--light);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Фоновый узор */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.2) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255, 0, 217, 0.2) 0%, transparent 20%);
+    z-index: -1;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+
+
+h4{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    /* background-color: var(--text-light); */
+    color: #4a4e69;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Герой-секция */
+.hero {
+    /* padding: 100px 0;  */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    animation: fadeInUp 1s ease 0.2s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Секции */
+.intro-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    padding: 60px 0;
+}
+
+.colors-section, .generator-section {
+    padding: 1rem 0;
+}
+
+/* Цветовые карточки */
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.color-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.color-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.color-sample {
+    width: 100%;
+    height: 100px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Информация о цвете */
+.color-info {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.color-info h3 {
+    color: var(--primary);
+    font-size: 1.8rem;
+}
+
+.color-usage {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--light);
+}
+
+.color-usage ul {
+    list-style-position: inside;
+    margin-top: 0.5rem;
+}
+
+.color-usage li {
+    margin-bottom: 0.5rem;
+}
+
+/* Генератор цветов */
+.color-generator {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.color-picker {
+    margin-bottom: 1.5rem;
+}
+
+.color-picker label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.color-picker input[type="color"] {
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+}
+
+.generated-colors {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.generated-color {
+    flex: 1;
+    height: 100px;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+
+.contrast-checker {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--light);
+}
+
+.contrast-preview {
+    display: flex;
+    margin: 1rem 0;
+}
+
+.contrast-text, .contrast-bg {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.contrast-text {
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+.contrast-bg {
+    background-color: var(--light);
+    color: var(--black);
+    border: solid 1px black;
+}
+
+
+
+
+/* ///////////////////////////////////////////Подвал//////////////////////// */
+footer {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--text-light);
+    padding-top: 60px;
+}
+.my_container_for_footer{
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+.mini_my_container_for_footer i{
+    font-size: 30px;margin: 5px 15px 0px 0px;
+}
+.mini_my_container_for_footer ul{
+list-style: none;
+
+}
+.mini_my_container_for_footer li{
+    margin: 3px 0px;
+    
+    }
+
+    .mini_my_container_for_footer{
+        width: 320px;
+        padding: 0px 10px;
+    }
+.mini_my_container_for_footer a{
+    color: white;
+    text-decoration: none;
+    }
+.mini_my_container_for_footer p{
+    margin-bottom: 18px;
+    font-size: 30px;
+    color: white;
+}
+.aoaoaoa{
+    text-align: center; 
+}
+.aok{
+    text-align: end;
+}
+@media (width <= 800px) {
+    .my_container_for_footer{
+        flex-direction: column;
+        justify-content: center;
+        align-items:center ;
+
+    }
+    .mini_my_container_for_footer {
+        margin: 30px 0px;
+        text-align: center; 
+    } 
+    .aoaoaoa{
+        text-align: center; 
+    }
+    .aok{
+        text-align: center;
+    }
+}
+.mini_my_container_for_footer{
+    color: white;
+}
+.footer-bottom p{
+    margin: 0;
+    padding: 20px 0px;
+    }
+.footer-bottom {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        /* margin-top: 40px; */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+
+
+
+
+
+/* ////////////////////////////Шапка/////////////////////////// */
+
+/* Анимированный градиент для шапки */
+.header-gradient {
+    /* position: fixed;
+    top: 0; */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 85px;
+}
+
+.background-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    z-index: -1;
+    background: linear-gradient(45deg, #4CAF50, #2196F3, #FFC107, #f44336);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    opacity: 0.9;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Стили навигации */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.logo i {
+    margin-right: 10px;
+    font-size: 2rem;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 1.1rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Адаптив */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 1rem 5%;
+    }
+    
+    .nav-links li {
+        margin-left: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 85px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(0, 0, 0, 0.95); /* Увеличиваем непрозрачность */
+        backdrop-filter: none; /* Убираем дополнительное размытие */
+        -webkit-backdrop-filter: none;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2rem;
+        transition: all 0.5s ease;
+        z-index: 999; /* Убедимся что меню выше других элементов */
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 1.2rem 0;
+    }
+
+    .nav-links a {
+        font-size: 1.3rem;
+    }
+
+    .burger {
+        display: block;
+    }
+}
+
+
+
+/* Адаптив для цветовых карточек */
+@media (max-width: 768px) {
+    .color-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .color-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Адаптив для генератора цветов */
+@media (max-width: 768px) {
+    .color-generator {
+        padding: 1.5rem;
+    }
+    
+    .generated-colors {
+        flex-wrap: wrap;
+    }
+    
+    .generated-color {
+        flex: 0 0 calc(50% - 0.5rem);
+        height: 80px;
+    }
+}
+
+/* Адаптив для контрастного превью */
+@media (max-width: 480px) {
+    .contrast-preview {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .contrast-text, 
+    .contrast-bg {
+        width: 100%;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .hero {
+        min-height: 60vh;
+    }
+}
+
+/* Адаптив для цветовой информации */
+@media (max-width: 768px) {
+    .color-info {
+        padding: 1.5rem;
+    }
+    
+    .color-info h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Адаптив для intro-секции */
+@media (max-width: 768px) {
+    .intro-section {
+        margin: 0 10px;
+        padding: 40px 0;
+    }
+}
+
+/* Адаптив для footer на очень маленьких экранах */
+@media (max-width: 400px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .footer-section h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Общие адаптивные настройки для контейнера */
+@media (max-width: 1200px) {
+    .container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem 0;
+    }
+}
